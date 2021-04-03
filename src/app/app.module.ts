@@ -9,11 +9,19 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { ResumeComponent } from './components/resume/resume.component';
-import { RportfolioComponent } from './components/rportfolio/rportfolio.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HeroComponent, AboutComponent, ResumeComponent, RportfolioComponent, ContactComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HeroComponent,
+    AboutComponent,
+    ResumeComponent,
+    PortfolioComponent,
+    ContactComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
