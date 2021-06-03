@@ -15,7 +15,7 @@ export class NetlifyFormsService {
   constructor(private http: HttpClient) {}
 
   public submitForm(fbEntry: any): Observable<any> {
-    const entry = new HttpParams({
+    const entry = new URLSearchParams({
       fromObject: {
         'form-name': 'feedbackForm',
         ...fbEntry,
@@ -26,7 +26,7 @@ export class NetlifyFormsService {
     return this.submitEntry(entry);
   }
 
-  private submitEntry(entry: HttpParams): Observable<any> {
+  private submitEntry(entry: URLSearchParams): Observable<any> {
     return this.http
       .post('/', entry.toString(), {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
