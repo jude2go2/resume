@@ -11,6 +11,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ContactComponent } from './components/contact/contact.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
