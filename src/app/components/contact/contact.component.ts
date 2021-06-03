@@ -14,7 +14,9 @@ export class ContactComponent implements OnInit {
 
   public onSubmitForm(formdata: NgForm) {
     if (formdata.valid) {
-      this.netlifyForm.submitForm(formdata.value);
+      this.netlifyForm.submitForm(formdata.value).subscribe((data) => {
+        console.log(data);
+      });
     }
   }
 }
