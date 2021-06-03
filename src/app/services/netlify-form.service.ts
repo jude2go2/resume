@@ -1,35 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NetlifyFormsService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public submitForm(fbEntry: any): Observable<any> {
-    const entry = new HttpParams({ fromObject: {
-      'form-name': 'feedbackForm',
-      ...fbEntry,
-      'rating': fbEntry.rating.toString(),
-    }});
+    const entry = new HttpParams({
+      fromObject: {
+        'form-name': 'feedbackForm',
+        ...fbEntry,
+        rating: fbEntry.toString(),
+      },
+    });
 
     return this.submitEntry(entry);
   }
 
   private submitEntry(entry: HttpParams): Observable<any> {
-    return this.http.post(
-      '/',
-      entry.toString(),
-      {
+    return this.http
+      .post('/', entry.toString(), {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        responseType: 'text'
-      }
-    ).pipe(catchError(this.handleError));
+        responseType: 'text',
+      })
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse) {
